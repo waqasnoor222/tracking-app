@@ -45,18 +45,18 @@ import LogoImage from "../resources/images/logo-blue.png";
 import { useCatch } from "../reactHelper";
 import Bgimage from "../resources/images/login-bg.jpg";
 
-function Copyright() {
-  return (
-    <Typography variant="body2" color="textSecondary" align="center">
-      {"Copyright © "}
-      <Link color="inherit" href="https://material-ui.com/">
-        Your Website
-      </Link>{" "}
-      {new Date().getFullYear()}
-      {"."}
-    </Typography>
-  );
-}
+// function Copyright() {
+//   return (
+//     <Typography variant="body2" color="textSecondary" align="center">
+//       {"Copyright © "}
+//       <Link color="inherit" href="https://material-ui.com/">
+//         Your Website
+//       </Link>{" "}
+//       {new Date().getFullYear()}
+//       {"."}
+//     </Typography>
+//   );
+// }
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -248,13 +248,9 @@ const LoginPage = () => {
   }
 
   return (
-    <Grid
-      container
-      component="main"
-      className={`${classes.root} register-main-div`}
-    >
-      <CssBaseline />
-      <div className={classes.options}>
+   <div class="login-page-main">
+        <div class="login-card-box">
+        <div className={classes.options}>
         {nativeEnvironment && (
           <Tooltip title={t("settingsServer")}>
             <IconButton onClick={() => navigate("/change-server")}>
@@ -263,27 +259,18 @@ const LoginPage = () => {
           </Tooltip>
         )}
       </div>
-      <Grid className={classes.container} container>
-        <Grid
-          className={classes.size}
-          item
-          xs={12}
-          sm={8}
-          md={5}
-          component={Paper}
-          elevation={1}
-          square
-        >
-          <div className={classes.paper}>
-            <div className={classes.logoImage}>
+   
+          <div>
+            {/* <div>
               <img src={LogoImage} alt={"logo.png"} width={150} />
-            </div>
-            <Avatar className={classes.avatar}>
+            </div> */}
+            {/* <Avatar className={classes.avatar}>
               <LockOutlinedIcon />
-            </Avatar>
-            <Typography component="h1" variant="h5">
+            </Avatar> */}
+            {/* <Typography component="h1" variant="h5">
               Sign in
-            </Typography>
+            </Typography> */}
+            <h1>Sing In</h1>
             <form className={classes.form} noValidate>
               <TextField
                 variant="outlined"
@@ -347,11 +334,9 @@ const LoginPage = () => {
               </div>
 
               <Button
+              class="login-btn-disabled "
                 type="submit"
                 fullWidth
-                variant="contained"
-                color="primary"
-                className={classes.submit}
                 onKeyUp={handleSpecialKey}
                 disabled={!email || !password}
                 onClick={handlePasswordLogin}
@@ -361,15 +346,16 @@ const LoginPage = () => {
 
               {openIdEnabled && (
                 <Button
+                class="active-btn"
                   onClick={() => handleOpenIdLogin()}
-                  variant="contained"
-                  color="secondary"
                 >
                   {t("loginOpenId")}
                 </Button>
               )}
-
-              <Grid container>
+                <div class="link-box">
+                  <a onClick={() => navigate("/register")}>Don't have an account ? <span>Sign Up</span> </a>
+                </div>
+              {/* <Grid container>
                 <Grid item>
                   <Link
                     href="#"
@@ -378,13 +364,12 @@ const LoginPage = () => {
                     disabled={!registrationEnabled}
                   >
                     {"Don't have an account? Sign Up"}
-                    {/* {t("loginRegister")} */}
                   </Link>
                 </Grid>
-              </Grid>
-              <Box mt={5}>
+              </Grid> */}
+              {/* <Box mt={5}>
                 <Copyright />
-              </Box>
+              </Box> */}
             </form>
             {emailEnabled && (
               <Link
@@ -397,8 +382,6 @@ const LoginPage = () => {
               </Link>
             )}
           </div>
-        </Grid>
-      </Grid>
       <Snackbar
         open={!!announcement && !announcementShown}
         message={announcement}
@@ -412,7 +395,8 @@ const LoginPage = () => {
           </IconButton>
         }
       />
-    </Grid>
+        </div>
+   </div>
   );
 };
 

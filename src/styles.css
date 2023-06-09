@@ -1,4 +1,13 @@
-html, body {
+@font-face {
+  font-family: PrimaryFont;
+  src: url("../public/font/Gilroy-Light.otf");
+}
+@font-face {
+  font-family: PrimaryFontBold;
+  src: url("../public/font/Gilroy-ExtraBold.otf");
+}
+html,
+body {
   height: 100%;
 }
 
@@ -17,9 +26,69 @@ canvas {
   flex-direction: column;
   height: 100%;
 }
-.sidebar{
+.sidebar {
   background: black !important;
 }
-.xyz{
+.xyz {
   background-color: red;
+}
+.login-page-main {
+  background-image: url("../public/banner-3.jpg");
+  height: 100%;
+  background-size: cover;
+  display: flex;
+  position: relative;
+  align-items: center;
+  justify-content: center;
+  background-position: top;
+}
+.login-page-main::before {
+  content: "";
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background: #000000d9;
+}
+.login-card-box {
+  background: white;
+  position: relative;
+  padding: 30px;
+  border-radius: 11px;
+  box-shadow: -1px -3px 16px 2px #ffffff2e;
+  width: 40%;
+}
+.login-card-box h1 {
+  font-family: primaryFont;
+  text-align: center;
+}
+.login-card-box label {
+  font-family: primaryFont;
+}
+.login-btn-disabled {
+  height: 47px;
+  width: 100%;
+  font-family: primaryFontBold;
+  margin: 20px 0;
+  font-size: 0.875rem;
+}
+.login-card-box .css-1sr8v5r-MuiButtonBase-root-MuiButton-root{
+  background: #45a30b;
+  color: white;
+  height: 47px;
+  font-family: primaryFontBold;
+  margin: 20px 0;
+
+}
+.link-box{
+  display: block;
+  text-align: center;
+}
+.link-box a{
+  cursor: pointer;
+  font-family: primaryFont;
+}
+.link-box a span{
+  color: #45a30b;
+  font-family: primaryFontBold;
+
 }

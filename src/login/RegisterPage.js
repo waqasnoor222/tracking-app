@@ -132,32 +132,23 @@ const RegisterPage = () => {
   });
 
   return (
-    <Grid container component="main" className={`${classes.root} register-main-div`}>
-      <CssBaseline />
-      <Grid className={classes.container}>
+    <div container component="main" class="login-page-main">
         {/* {useMediaQuery(theme.breakpoints.down("lg")) && (
           <LogoImage color={theme.palette.primary.main} />
         )} */}
-        <Grid
-          className={classes.size}
-          item
-          xs={12}
-          sm={8}
-          md={5}
-          component={Paper}
-          elevation={1}
-          square
-        >
-          <div className={classes.paper}>
-            <div className={classes.logoImage}>
+     
+          <div class="login-card-box">
+            {/* <div className={classes.logoImage}>
               <img src={LogoImage} alt={"logo.png"} width={150} />
-            </div>
-            <Avatar className={classes.avatar}>
+            </div> */}
+            {/* <Avatar className={classes.avatar}>
               <LockOutlinedIcon />
-            </Avatar>
-            <Typography component="h1" variant="h5">
+            </Avatar> */}
+            {/* <Typography component="h1" variant="h5">
               Register
-            </Typography>
+            </Typography> */}
+            <h1>Sing Up</h1>
+
             <form className={classes.form} noValidate>
               <TextField
                 variant="outlined"
@@ -196,10 +187,8 @@ const RegisterPage = () => {
                 onChange={(event) => setPassword(event.target.value)}
               />
               <Button
-                variant="contained"
-                color="primary"
+                class="login-btn-disabled "
                 onClick={handleSubmit}
-                className={classes.submit}
                 disabled={
                   !name ||
                   !password ||
@@ -209,25 +198,29 @@ const RegisterPage = () => {
               >
                 {t("loginRegister")}
               </Button>
-              <Grid container>
-                <Grid item>
+
+              <div class="link-box">
+                  <a onClick={() => navigate("/login")}>Don't have an account ? <span> Sign In</span> </a>
+                </div>
+
+
+              {/* <div container>
+                <div item>
                   <Link
                     href="#"
                     variant="body2"
                     onClick={() => navigate("/login")}
                   >
                     {"Already have an account? Sign In"}
-                    {/* {t("loginRegister")} */}
+                    {t("loginRegister")}
                   </Link>
-                </Grid>
-              </Grid>
-              <Box mt={5}>
+                </div>
+              </div> */}
+              {/* <Box mt={5}>
                 <Copyright />
-              </Box>
+              </Box> */}
             </form>
           </div>
-        </Grid>
-      </Grid>
       <Snackbar
         open={snackbarOpen}
         onClose={() => {
@@ -239,7 +232,7 @@ const RegisterPage = () => {
         autoHideDuration={snackBarDurationShortMs}
         message={t("loginCreated")}
       />
-    </Grid>
+    </div>
   );
 };
 
